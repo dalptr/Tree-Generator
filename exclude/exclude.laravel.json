@@ -1,0 +1,22 @@
+{
+  "exclude_folders_arg": [
+    "build",
+    "test",
+    ".git",
+    ".idea",
+    "venv\\Lib",
+    "vendor",
+    "views",
+    "uploads",
+    "node_modules"
+  ],
+  "exclude_extensions_arg": [
+    ".ext",
+    "png",
+    "jpg",
+    "jpeg",
+    "svg",
+    "css",
+    "js"
+  ]
+}
