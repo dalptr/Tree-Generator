@@ -69,6 +69,7 @@ class TreeGenerator:
         for extension in self.exclude_extensions:
             content += extension + '\n'
         pyperclip.copy(content)  # copy to clipboard
+        input("Your directory structure has been copied to clipboard, press key to exit")
 
 
 def get_settings():
