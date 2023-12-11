@@ -89,7 +89,6 @@ def get_settings():
     print("Using settings file: " + settings_file_path)
     with open(settings_file_path, 'r') as json_file:
         data = json.load(json_file)
-    # return data["exclude_folders_arg"], data["exclude_extensions_arg"]
     try:
         exclude_folders = data["exclude_folders_arg"]
         exclude_extensions = data["exclude_extensions_arg"]
@@ -104,7 +103,7 @@ def main():
     print("Current working directory: " + str(Path.cwd()))
     exclude_folders_arg, exclude_extensions_arg = get_settings()
     tree_gen = TreeGenerator(exclude_folders=exclude_folders_arg, exclude_extensions=exclude_extensions_arg)
-    directory = input('Enter directory (default = current directory): ')
+    directory = input('Enter directory (default = current working directory): ')
     if directory == '':
         directory = str(Path.cwd())
     tree_gen.print_tree(directory)
