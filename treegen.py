@@ -79,6 +79,9 @@ def get_settings():
     for i in range(len(settings_files)):
         print(str(i + 1) + ". " + str(Path(exclude_folder_path + "/" + settings_files[i]).resolve()))
     settings_file_index = int(input("Enter index of settings file: "))
+    if settings_file_index < 0 or settings_file_index > len(settings_files):
+        print("Invalid index, no settings file will be used")
+        return None, None
     if settings_file_index == 0:
         settings_file_path = str(Path(__file__).parent) + "/treegen.settings.json"
     else:
