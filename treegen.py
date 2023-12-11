@@ -70,6 +70,7 @@ class TreeGenerator:
             content += extension + '\n'
         pyperclip.copy(content)  # copy to clipboard
         input("Your directory structure has been copied to clipboard, press key to exit")
+        # prevent console from closing immediately
 
 
 def get_settings():
