@@ -86,11 +86,17 @@ def get_settings():
     print("Using settings file: " + settings_file_path)
     with open(settings_file_path, 'r') as json_file:
         data = json.load(json_file)
-    return data["exclude_folders_arg"], data["exclude_extensions_arg"]
+    # return data["exclude_folders_arg"], data["exclude_extensions_arg"]
+    try:
+        exclude_folders = data["exclude_folders_arg"]
+        exclude_extensions = data["exclude_extensions_arg"]
+        return exclude_folders, exclude_extensions
+    except KeyError:
+        print("Invalid settings file")
+        return None, None
 
 
-if __name__ == '__main__':
-    # print directory of this file
+def main():
     print("Current file directory: " + str(Path(__file__).parent))
     print("Current working directory: " + str(Path.cwd()))
     exclude_folders_arg, exclude_extensions_arg = get_settings()
@@ -99,3 +105,7 @@ if __name__ == '__main__':
     if directory == '':
         directory = str(Path.cwd())
     tree_gen.print_tree(directory)
+
+
+if __name__ == '__main__':
+    main()
